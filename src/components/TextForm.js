@@ -32,6 +32,15 @@ const handleExtraSpaces=()=>{
   setText(newText.join(" "));
  //props.showAlert("The extra spaces were removed","success");
 }
+const handlePascalCase=()=>{
+    letnewText=text.toLowerCase()
+    .split(' ')
+    ,map(word=>
+      word/CharacterData(0).toUpperCase()+word.slice(1))
+      .join('');
+      setText(newText);
+     alert("CVonverted to Pascal Case");
+  };
   return (
     <>
     <div className="container" style={{color:props.mode==='dark'?'white':'#160552'}}>
@@ -44,6 +53,7 @@ const handleExtraSpaces=()=>{
       <button  disabled={text.length===0}className="btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text.</button>
       <button disabled={text.length===0} className="btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
       <button disabled={text.length===0} className="btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+      <button disabled={text.length===0} className="btn-primary mx-1 my-1" onClick={handlePascalCase}>Convert to pascalCase</button>
       </div>
     <div className="container-my4"  style={{color:props.mode==='dark'?'white':'#160552'}}>
         <h1 className='mb-2'>Your text Summary</h1>
