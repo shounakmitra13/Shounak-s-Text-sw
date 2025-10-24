@@ -36,13 +36,14 @@ export default function TextForm(props) {
   };
 
   const handlePascalCase = () => {
-    let newText = text
-      .toLowerCase()
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(''); // PascalCase: no spaces
+    const newText = text
+        .trim()
+        .split(/\s+/)
+        .filter(word => word.length > 0)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join('');
     setText(newText);
-    alert("Converted to Pascal Case");
+    // props.showAlert("The text was converted to Pascal Case", "success");
   };
 
   return (
@@ -79,7 +80,7 @@ export default function TextForm(props) {
           Remove Extra Spaces
         </button>
         <button disabled={text.length === 0} className="btn-primary mx-1 my-1" onClick={handlePascalCase}>
-          Convert to PascalCase
+          Convert to Pascal Case
         </button>
       </div>
 
